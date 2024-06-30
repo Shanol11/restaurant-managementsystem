@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Restaurant Name</title>
+    <style>
+        body {
+            background-image: url("https://wallpapercave.com/wp/wp7236419.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        section {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .facility {
+            margin-bottom: 1rem;
+        }
+        .facility img {
+            max-width: 25px;
+        }
+        .facility-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 20px;
+            margin-top: 0.5rem;
+        }
+        .facility-details h3 {
+            margin: 0;
+            
+        }
+        .rating {
+            height: 30;
+            width: 40;
+          
+            display: flex;
+            align-items: center;
+        }
+        .rating img {
+            max-width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Blissful Bites</h1>
+        <p>Your Ultimate Dining Experience</p>
+    </header>
+
+    <section>
+        <h2>Restaurant Rating</h2>
+        <div class="rating">
+            <img src="data:image/jpeg;base64,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" alt="Star Rating">
+            <p>Rated 4.8 out of 5 based on 200+ reviews</p>
+        </div>
+        <!-- Add customer reviews or testimonials here -->
+    </section>
+
+    <section>
+        <h2>Our History</h2>
+        <p>Established in 2010, Restaurant Blissful Bites has been serving exquisite dishes and creating unforgettable dining experiences for over 12 years.
+            Blissful Bites is known for a substantial gathering of people, including families, kids, seniors, and business experts. 
+            Our benevolent condition is perfect for praising unique events, facilitating a business lunch, or assembling for a flavorful dinner with loved ones.</p>
+        <!-- Add more history details if needed -->
+    </section>
+
+    <section>
+        <h2>Facilities</h2>
+        <div class="rating">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Wheelchair_symbol.svg/1795px-Wheelchair_symbol.svg.png", width="40",height="30" alt="Facility for Disabled>f">
+                <p>Wheel Chair Accessibility</p> 
+             </div>
+           
+            </div>
+        </div>
+        <div class="rating">
+            <img src="https://m.media-amazon.com/images/I/61CY7fHwcrL.jpg", width="40",height="100" alt="Kids Area">
+                <p>Kids Area</p>
+            </div>
+            <div class="rating">
+                <img src="https://media.istockphoto.com/id/186851083/photo/romantic-dinner-on-the-beach.jpg?s=612x612&w=0&k=20&c=IJawZSBWLWX6DMCbM7D33IDQTenEImVyG0F4wakLGLg=", width="40",height="100" alt="Kids Area">
+                    <p>Pool Side Dining</p>
+                </div>
+        <!-- Add more facilities with images and details -->
+    </section>
+
+    <!-- Add more sections as needed -->
+
+    <footer>
+        <p>&copy; 2023 Blissful Bites. All rights reserved.</p>
+    </footer>
+</body>
+</html>

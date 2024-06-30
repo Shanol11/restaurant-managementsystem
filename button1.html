@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DELIGHT</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+        nav {
+          padding: 0.5rem;
+          text-align: center;
+        }
+  .button-container {
+    text-align: center;
+  }
+  .button {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: Black;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  .split {
+   
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.left {
+  left: 0;
+  background-image: url('https://img.freepik.com/premium-photo/blur-bokeh-background-interior-table-chair-mall-canteen-abstract-bokeh-food-business-dining-court-with-no-person-defocused-light-retail-lifestyle-cafe-shop-decoration-modern_276947-3145.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.right {
+  right: 0;
+  background-image: url('https://media.istockphoto.com/id/1314632869/photo/close-up-of-woman-packing-food-for-delivery.jpg?s=612x612&w=0&k=20&c=BxprKaRwG2tllANSALcOyqjC__zkBThfDZ8LWpkMGT4=');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+header {
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          padding: 5rem;
+        }
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+</style>
+</head>
+<body>
+  <header>
+    <h1>DELIGHT</h1>
+  </header>
+<div class="split left">
+  <div class="centered">
+        <nav>
+        <a href="dinein.html" class="button">Dine In</a>
+    </nav>
+  </div>
+</div>
+<div class="split right">
+  <div class="centered">
+    <nav>
+        <a href="takeaway.html" class="button">Take Away</a>
+    </nav>
+  </div>
+</div>
+</body>
+</html>

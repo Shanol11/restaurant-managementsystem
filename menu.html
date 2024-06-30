@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        body {
+            background-image: url('https://media.istockphoto.com/id/162244500/photo/table-filled-with-freshly-made-indian-food.jpg?s=612x612&w=0&k=20&c=g9-Wz-_wyltAWCaiNM-cI4QoXO_xY4IscCAdvP20Me8=');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        .menu-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+        h2 {
+            color: black;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 1rem;
+        }
+        .menu-category {
+            font-weight: bold;
+            color: black;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .item-name {
+            flex: 1;
+        }
+        .item-price {
+            color: #00aaff;
+        }
+        .quantity {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-btn {
+            background-color: black;
+            color: #fff;
+            border: none;
+            padding: 0.2rem 0.5rem;
+            cursor: pointer;
+        }
+        .total-price {
+            font-size: 1.2rem;
+            color: #00aaff;
+            margin-top: 1rem;
+        }
+        .button-container {
+            text-align: center;
+        }
+        .button {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: Black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function updateTotalPrice() {
+            let total = 0;
+            const items = document.getElementsByClassName('menu-item');
+            for (let item of items) {
+                const price = parseFloat(item.querySelector('.item-price').textContent.slice(1));
+                const quantity = parseInt(item.querySelector('.quantity input').value);
+                total += price * quantity;
+            }
+            document.getElementById('total-price').textContent = '₹' + total.toFixed(2);
+        }
+
+        function incrementQuantity(button) {
+            const input = button.parentElement.querySelector('input');
+            const newValue = parseInt(input.value) + 1;
+            input.value = newValue;
+            updateTotalPrice();
+        }
+
+        function decrementQuantity(button) {
+            const input = button.parentElement.querySelector('input');
+            const newValue = parseInt(input.value) - 1;
+            input.value = newValue < 0 ? 0 : newValue;
+            updateTotalPrice();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Blissful Bites Menu</h1>
+    </header>
+    <div class="menu-container">
+        <u><h2>Menu Options</h2></u>
+        <form id="menu-form" action="checkout.php" method="POST">
+          
+        <ul>
+            <li>
+                <span class="menu-category">Vegetarian</span>
+                <div class="menu-item">
+                    <span class="item-name">Veg Delight Burger</span>
+                    <input type="hidden" name="item_name[]" value="Veg Delight Burger">
+                    <span class="item-price">₹150.00</span>
+                    <input type="hidden" name="item_price[]" value="150.00">
+                     <div class="quantity">
+                        
+                        <button type="button" class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+                        <input type="number" name="quantity[]" value="0" min="0" max="10" oninput="updateTotalPrice()">
+                        <button type="button" class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Veg Biryani</span>
+                    <input type="hidden" name="item_name[]" value="Veg Biryani">
+                    <span class="item-price">₹200.00</span>
+                    <input type="hidden" name="item_price[]" value="200.00" >
+                    <div class="quantity">
+                        <button type="button" class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+                        <input type="number" name="quantity[]" value="0" min="0" max="10" oninput="updateTotalPrice()">
+                        <button type="button" class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                    </div>
+                </div>
+                <!-- Add more vegetarian options here -->
+            </li>
+            <li>
+                <span class="menu-category">Non-Vegetarian</span>
+                <div class="menu-item">
+                    <span class="item-name">Classic Chicken Sandwich</span>
+                    <input type="hidden" name="item_name[]" value="Classic Chicken Sandwich">
+                    <span class="item-price">₹175.00</span>
+                    <input type="hidden" name="item_price[]" value="175.00">
+                    <div class="quantity">
+                        <button type="button" class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+                        <input type="number" name="quantity[]" value="0" min="0" max="10" oninput="updateTotalPrice()">
+                        <button type="button" class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Chicken Noodles</span>
+                    <input type="hidden" name="item_name[]" value="Chicken Noodles">
+                    <span class="item-price">₹200.00</span>
+                    <input type="hidden" name="item_price[]" value="200.00">
+                    <div class="quantity">
+                        <button type="button" class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+                        <input type="number" name="quantity[]" value="0" min="0" max="10" oninput="updateTotalPrice()">
+                        <button type="button" class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                    </div>
+                </div>
+                <!-- Add more non-vegetarian options here -->
+            </li>
+            <li>
+                <span class="menu-category">Desserts</span>
+                <div class="menu-item">
+                    <span class="item-name">Chocolate Lava Cake</span>
+                    <input type="hidden" name="item_name[]" value="Chocolate Lava Cake">
+                    <span class="item-price">₹99.00</span>
+                    <input type="hidden" name="item_price[]" value="99.00">
+                    <div class="quantity">
+                        <button type="button" class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+                        <input type="number" name="quantity[]" value="0" min="0" max="10" oninput="updateTotalPrice()">
+                        <button type="button" class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Milk Cake</span>
+                    <input type="hidden" name="item_name[]" value="Milk Cake">
+                    <span class="item-price">₹150.00</span>
+                    <input type="hidden" name="item_price[]" value="150.00">
+                    <div class="quantity">
+                        <button type="button" class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+                        <input type="number" name="quantity[]" value="0" min="0" max="10" oninput="updateTotalPrice()">
+                        <button type="button" class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                    </div>
+                </div>
+                <!-- Add more dessert options here -->
+            </li>
+            <li>
+                <span class="menu-category">Beverages</span>
+                <div class="menu-item">
+                    <span class="item-name">Fresh Orange Juice</span>
+                    <input type="hidden" name="item_name[]" value="Fresh Orange Juice">
+                    <span class="item-price">₹70.00</span>
+                    <input type="hidden" name="item_price[]" value="70.00">
+                    <div class="quantity">
+                        <button type="button" class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+                        <input type="number" name="quantity[]" value="0" min="0" max="10" oninput="updateTotalPrice()">
+                        <button type="button" class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Virgin Mojito</span>
+                    <input type="hidden" name="item_name[]" value="Virgin Mojito">
+                    <span class="item-price">₹140.00</span>
+                    <input type="hidden" name="item_price[]" value="140.00">
+                    <div class="quantity">
+                        <button type="button" class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+                        <input type="number" name="quantity[]" value="0" min="0" max="10" oninput="updateTotalPrice()">
+                        <button type="button" class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                    </div>
+                </div>
+                <!-- Add more beverage options here -->
+            </li>
+        </ul>
+        <div class="total-price">
+            Total: <span id="total-price">₹0.00</span>
+        </div>
+        <div class="button-container">
+            <button type="submit" class="button" onclick="submitForm()">Proceed To Checkout</button>
+        </div>
+        </form>
+    </div>
+    <script>
+        function submitForm() {
+            // Submit the form when the "Proceed" button is clicked
+            document.getElementById('menu-form').submit();
+        }
+    </script>
+</body>
+</html>
