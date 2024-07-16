@@ -24,7 +24,7 @@ $stmt->bind_param("sss", $name, $email, $password);
 
 if ($stmt->execute()) {
     
-    echo "<script>window.location.href='http://localhost:8080/data1/home.html'</script>";
+    echo "<script>window.location.href='http://localhost:8080/home.html'</script>";
 } else {
     echo "Error: " . $stmt->error;
 }
