@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
 
             if ($stmt->execute()) {
-                echo "<script>window.location.href='http://localhost:8080/data1/button1.html'</script>";
+                echo "<script>window.location.href='http://localhost:8080/button1.html'</script>";
             } else {
                 echo "Error saving menu items: " . $stmt->error;
             }
