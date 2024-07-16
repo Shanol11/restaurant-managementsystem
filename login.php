@@ -24,7 +24,7 @@ $stmt->bind_param("sss", $name, $email, $password);
 
 if ($stmt->execute()) {
     
-    echo "<script>window.location.href='https://shanol11.github.io/restaurant-managementsystem/login.php";
+    echo "<script>window.location.href='https://shanol11.github.io/restaurant-managementsystem/home.html";
 } else {
     echo "Error: " . $stmt->error;
 }
